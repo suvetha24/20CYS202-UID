@@ -1,0 +1,131 @@
+<Html>  
+<head>   
+<title>  Registration Page  </title>  
+
+</head>  
+<body style="background-color:pink">
+<marquee> welcome </marquee>
+<br>  
+<br>  
+<label> Firstname: </label>         
+<input type="text" name="firstname" size="15"> <br> <br>  
+ <label> Lastname: </label>         
+<input type="text" name="lastname" size="15"> <br> <br>  
+ <label for="birthday">Birthday:</label>
+<input type="date" id="birthday" name="birthday"> <br><br>
+<label>   
+Campus : 
+ </label> 
+<select>  
+ <option value="Coimbatore">Coimbatore</option>  
+<option value="Amritapuri">Amritapuri</option>  
+<option value="Bengaluru">Bengaluru</option>  
+<option value="Chennai">Chennai</option>  
+<option value="Kochi">Kochi</option>  
+<option value="Mysore">Mysore</option> 
+<option value="Amaravati">Amaravati</option>   
+</select>  
+ <br>  
+<br>  
+<label>   
+Gender :  
+</label><br>  
+<input type="radio" name="male"> Male <br>  
+<input type="radio" name="female"> Female <br>  
+<input type="radio" name="intersex"> intersex 
+<br>  
+<br>
+<p> Are you intersted?</p>
+<style>
+  .switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 20px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  top: 2px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color:#AAA;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+</style>
+<label class="switch">
+  <input type="checkbox" checked>
+  <span class="slider round"></span>
+</label><br><br>
+<label>   
+Phone :  
+</label>  
+<input type="text" name="country code"  value="+91" size="2">   
+<input type="text" name="phone" size="10"> <br> <br>  
+Address :
+<br>
+<textarea cols="80" rows="5" value="address">  
+</textarea>  
+<br> <br>  
+Email:  
+<input type="email" id="email" name="email"> <br>    
+<br> <br>  
+Password:  
+<input type="Password" id="pass" name="pass"> <br>   
+<br> <br>  
+Re-type password:  
+<input type="Password" id="repass" name="repass"> <br> <br>  
+
+</form> 
+<center>
+<form>  
+  <form action="/action_page.php">
+  <input type="file" id="myFile" name="filename">
+  <input type="submit">
+</form>
+</center>
+ </body>  
+</html>  
