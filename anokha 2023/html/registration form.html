@@ -1,0 +1,243 @@
+<Html>  
+<head>   
+<title>  Registration Page  </title>  
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>  
+<body style="background-color:pink">
+<form style="padding:10;border-style:double;"> 
+
+<h1> Registration form </h1>
+<br>  
+<br>  
+
+  <label style="width: 170px;">  Name: </label>         
+<input type="text" id="fname" name="firstname" size="15"> <br> <br> 
+<p id="fname_validation"></p> 
+ <label style="width: 170px;"> Roll no: </label>         
+<input type="text" id="rn" name="Roll no" size="15"> <br> <br> 
+<p id="rn_validation"></p> 
+<label style="width: 170px;">   
+Campus : 
+ </label> 
+<select id="select">  
+ <option value="Coimbatore">Coimbatore</option>  
+<option value="Amritapuri">Amritapuri</option>  
+<option value="Bengaluru">Bengaluru</option>  
+<option value="Chennai">Chennai</option>  
+<option value="Kochi">Kochi</option>  
+<option value="Mysore">Mysore</option> 
+<option value="Amaravati">Amaravati</option>   
+</select>  
+<p id="select_validation"></p>
+ <br>  
+<br>  
+<label style="width: 170px;">
+Gender :  
+</label>  
+<input type="radio" id="male"name="male"> Male 
+<input type="radio" id="female"name="female"> Female   
+<input type="radio" id="intersex"name="intersex"> intersex 
+ <p id="gender_validation"></p>
+<br>  
+<br>
+<label style="width: 170px;">     
+Phone :  
+</label>  
+<input type="text" name="country code"  value="+91" size="2">   
+<input type="text" name="phone" size="10">
+ <p id="phone_validation"></p> <br> <br>
+<p> would you like to receive notifications?</p>
+<style>
+  .switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 20px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  top: 2px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color:#AAA;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+</style>
+<label class="switch">
+  <input type="checkbox" checked>
+  <span class="slider round"></span>
+</label>
+
+<br><br>
+  <label style="width: 170px;"for="birthday">Birthday:</label>
+<input type="date" id="birthday" name="birthday"> <br><br>  
+  <p id="birthday_validation"></p>
+<label style="width: 170px;">
+Address :
+<br>
+</label>
+<textarea cols="80" rows="5" value="address">  
+</textarea>
+  <p id="address_validation"></p>  
+<br> <br> 
+<label style="width: 170px;"> 
+Email:  
+</label>
+<input type="email" id="email" name="email"> <br>    
+<br> <br> 
+<label style="width: 170px;"> 
+Password:  
+</label>
+<input type="Password" id="pass" name="pass"> <br>   
+<p id="password_validation"></p>
+<br> <br> 
+<label style="width: 170px;"> 
+Re-type password:  
+</label>
+<input type="Password" id="repass" name="repass">
+<p id="repassword_validation"></p> <br>  
+ <input type="button"  onclick="validate()" value="Submit"> <br> <br>  
+<script>
+  function validate(){
+    var regName = /^[a-zA-Z]+$/;
+    var regphone = /^\d{10}$/;
+    var regemail = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/;
+    var regpass = /^(?=.\d)(?=.[a-z])(?=.[A-Z])(?=.[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+    var fname = document.getElementById('fname').value;
+    var rn= document.getElementById('rollno').value;
+   var select = document.getElementById('select');
+    var mradio = document.getElementById('male').checked;
+    var fradio = document.getElementById('female').checked;
+    var iradio = document.getElementById('intersex').checked;
+    var phone = document.getElementById('phoneno').value;
+    var address = document.getElementById('address').value;
+    var email = document.getElementById('email').value;
+    var pass = document.getElementById('pass').value;
+    var repass = document.getElementById('repass').value;
+    var booladd = address != '';
+
+    if(!regName.test(fname)){
+      document.getElementById("fname_validation").innerHTML = "<span style='color: red;'> *Please enter the valid First Name </span>";
+      document.getElementById('fname').focus();
+      return false
+    }
+    else {
+      document.getElementById("fname_validation").innerHTML = "<span style='color: green;'> *Valid First Name is given. </span>";
+    }
+    if(!regName.test(rn)){
+      document.getElementById("rn_validation").innerHTML = "<span style='color: red;'> *Please enter the valid roll no </span>";
+      document.getElementById('rn').focus();
+      return false
+    }
+    else {
+      document.getElementById("rn_validation").innerHTML = "<span style='color: green;'> *Valid roll no is given. </span>";
+    }
+    if (select == "Course") {
+      document.getElementById("select_validation").innerHTML = "<span style='color: red;'> *Please select the valid Course </span>";
+      return false;
+    }
+    else {
+      document.getElementById("select_validation").innerHTML = "<span style='color: green;'> *Valid Course is selected. </span>";
+    }
+    if(mradio == true) {   
+      document.getElementById("gender_validation").innerHTML = "<span style='color: green;'> *Male is selected. </span>";  
+    } 
+    else if(fradio == true) {  
+      document.getElementById("gender_validation").innerHTML = "<span style='color: green;'> *Female is selected. </span>";   
+    }
+    else if(iradio == true) {  
+      document.getElementById("gender_validation").innerHTML = "<span style='color: green;'> *Others is selected. </span>";   
+    }
+    if(!phone.match(regphone)) {
+      document.getElementById("phone_validation").innerHTML = "<span style='color: red;'> *Please enter the valid Phone Number </span>";
+      return false;
+    }
+    else {
+      document.getElementById("phone_validation").innerHTML = "<span style='color: green;'> *Valid Phone Number is given. </span>";
+    }
+    if(booladd == true) {
+      document.getElementById("address_validation").innerHTML = "<span style='color: green;'> *Valid Address is given. </span>";
+    }
+    else {
+      document.getElementById("address_validation").innerHTML = "<span style='color: red;'> *Please enter the valid Address </span>";
+      return false;
+    }
+    if (!regemail.test(email)) {
+      document.getElementById("email_validation").innerHTML = "<span style='color: red;'> *Please enter the valid Email Address </span>";
+      document.getElementById('email').focus();
+      return false;
+    }
+    else {
+      document.getElementById("email_validation").innerHTML = "<span style='color: green;'> *Valid Email Address is given. </span>";
+    }
+    if (!regpass.test(pass)) {
+      document.getElementById("password_validation").innerHTML = "<span style='color: red;'> *Please enter the Password in valid format. <br> Password should contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character. <br> Password should contain 8-16 characters. </span>";
+      return false;
+    }
+    else {
+      document.getElementById("password_validation").innerHTML = "<span style='color: green;'> *Valid Password is given. </span>";
+    }
+    if (pass == repass) {
+      document.getElementById("repassword_validation").innerHTML = "<span style='color: green;'> *Passwords match. </span>";
+    }
+    else {
+      document.getElementById("repassword_validation").innerHTML = "<span style='color: red;'> *Passwords do not match </span>";
+    }
+  }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+ 
+</script>
+<center>
+<p> Upload your photo<p> 
+  
+  <input type="file" id="myFile" name="filename">
+  <input type="submit">
+</form>
+</center>
+</body>  
+</html>  
